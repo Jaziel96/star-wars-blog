@@ -21,8 +21,13 @@ const injectContext = PassedComponent => {
 			})
 		);
 
-		useEffect(() => {
-			state.actions.loadSpecies()
+		useEffect(async() => {
+			await state.actions.loadFilms()
+			await state.actions.loadPeople()
+			await state.actions.loadPlanets()
+			await state.actions.loadSpecies()
+			await state.actions.loadStarships()
+			await state.actions.loadVehicles()
 		}, []);
 
 		// The initial value for the context is not null anymore, but the current state of this component,

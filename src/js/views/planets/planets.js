@@ -1,15 +1,11 @@
 import React from 'react'
-import PreviewPlanets from "./previewPlanets";
+import { Outlet } from 'react-router-dom'
+import ListPlanets from '../../component/planets/listPlanets'
 
-export default function Planets (props) {
-    
+export default function Planets(){
     return (
-        <div>
-            <div className="row row-cols-1 row-cols-md-3 g-4">
-                <div className="col">
-                    <PreviewPlanets />
-                </div>
-            </div>
-        </div>
-    )
+    <div>
+        <h1>Planets</h1>
+        <ListPlanets />
+    </div>)
 }

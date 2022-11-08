@@ -1,6 +1,10 @@
-import {filmStore, filmsActions} from './films'
+import {filmsStore, filmsActions} from './films'
 import { speciesActions, speciesStore } from './species';
-import {planetStore, planetsActions} from './planets'
+import {planetsStore, planetsActions} from './planets'
+import { peopleActions, peopleStore } from './people';
+import { starshipsActions, starshipsStore } from './starships';
+import { vehiclesActions, vehiclesStore } from './vehicles';
+
 
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -8,9 +12,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 			/*
 			characters: [
 			],*/
-			...filmStore,
+			...peopleStore,
+			...planetsStore,
 			...speciesStore,
-			...planetStore
+			...starshipsStore,
+			...vehiclesStore,
+			...filmsStore
 		},
 		actions: {
 			/*
@@ -23,9 +30,12 @@ const getState = ({ getStore, getActions, setStore }) => {
 					characters: response
 				});
 			},*/
-			...filmsActions(getStore, getActions, setStore),
+			...peopleActions(getStore, getActions, setStore),
+			...planetsActions(getStore, getActions, setStore),
 			...speciesActions(getStore, getActions, setStore),
-			...planetsActions(getStore, getActions, setStore)
+			...starshipsActions(getStore, getActions, setStore),
+			...vehiclesActions(getStore, getActions, setStore),
+			...filmsActions(getStore, getActions, setStore)
 		}
 	};
 };

@@ -2,22 +2,22 @@ import React, { useContext } from 'react'
 import {Context} from '../../store/appContext'
 import {Link} from 'react-router-dom'
 
-export default function ListSpecies(){
+export default function ListStarships(){
     const {store, actions} = useContext(Context)
-    let imgUrl = "https://starwars-visualguide.com/assets/img/species"
+    let imgUrl = "https://starwars-visualguide.com/assets/img/starships"
 
     return(
         <div>
-            <h1> Species</h1>
+            <h1> Starships</h1>
             <ul className="list-group list-group-horizontal overflow-auto">
-                {store.species.length > 0 ? store.species.map((specie, index)=>{
+                {store.starships.length > 0 ? store.starships.map((starship, index)=>{
                     return(
                         <li key={index} className="list-group-item" style={{background: "black"}}>
                             <div className="card">
-                                <img src={`${imgUrl}/${specie.uid}.jpg`} className="card-img-top" alt="..." />
+                                <img src={`${imgUrl}/${starship.uid}.jpg`} className="card-img-top" alt="..." />
                                 <div className="card-body">
-                                    <h5 className="card-title">{specie.name}</h5>                    
-                                    <Link to={`/species/${specie.uid}`} className="btn btn-primary">Details</Link>
+                                    <h5 className="card-title">{starship.name}</h5>                    
+                                    <Link to={`/starships/${starship.uid}`} className="btn btn-primary">Details</Link>
                                 </div>
                             </div>
                         </li> 
